@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<h2>O Problema das Gerações</h2>
+
+<script>
+	
+	function pulaLinha(){
+		document.write("<br>");
+	}
+	function mostra(texto){
+		document.write(texto);
+		pulaLinha();
+		pulaLinha();
+	}
+
+	var anoAtual = 2022;
+	var anoDescobrimento = 1500;
+	var anosPercorridos;
+	var geracoes;
+
+	anosPercorridos = 2022 - 1500;
+	geracoes = anosPercorridos / 28;
+
+	mostra("Já se passaram " + anosPercorridos + " anos desde o descobrimento do Brasil.");
+	mostra("Já tivemos cerca de " + Math.round(geracoes) + " gerações desde o descobrimento do Brasil.")
+
+</script>

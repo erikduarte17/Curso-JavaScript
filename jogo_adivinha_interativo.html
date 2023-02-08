@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+
+<h2>Jogo de Advinhação Interativo</h2>
+
+<input/>
+<button> VERIFICAR CHUTE </button>
+
+<script>
+
+	var numeroPensado = Math.round(Math.random() * 10);
+
+	var entrada = document.querySelector("input");
+
+	function verificaAcerto(){
+		if(entrada.value == numeroPensado){
+			alert("ACERTOU!");
+		}
+		else{
+			alert("ERROU!");
+		}
+
+		entrada.value = "";
+		entrada.focus();
+	}
+
+	var botao = document.querySelector("button");
+
+	botao.onclick = verificaAcerto;
+
+</script>

@@ -1,0 +1,46 @@
+<meta charset="UTF-8">
+
+<h2>Jogo de Advinhação</h2>
+
+<script>
+
+	function pulaLinha(){
+		document.write("<br>");
+	}
+	
+	function mostra(texto){
+		document.write(texto);
+		pulaLinha();
+	}
+
+	function sorteia(valorMaxRandom){
+		var numeroAleatorio = Math.round(Math.random() * valorMaxRandom);
+		return numeroAleatorio;
+	}
+
+	var valorMax = parseInt(prompt("Entre com o valor máximo do intervalo!"));
+
+	var numeroPensado = sorteia(valorMax);
+
+	var tentativaAtual = 1;
+	var numeroTentativas = 3;
+
+	while(tentativaAtual <= numeroTentativas){
+		var chute = parseInt(prompt("Chute o número que o computador gerou!"));
+
+		if(chute == numeroPensado){
+			mostra("Você acertou o número!");
+			break;
+		} else {
+			mostra("Você errou o número!");
+			if(chute > numeroPensado){
+				mostra("O número pensado é menor que o número do seu chute.");
+			} else {
+				mostra("O número pensado é maior que o número do seu chute.");
+			}
+		}
+
+		tentativaAtual++;
+	}
+
+</script>

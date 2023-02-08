@@ -1,0 +1,71 @@
+<meta charset="UTF-8">
+
+<h2>Jogo de Advinhação Interativo</h2>
+
+<input/>
+<button> VERIFICAR CHUTE </button>
+
+<script>
+
+	
+
+	function sorteia(){
+		return Math.round(Math.random() * 10);
+	}
+
+	function atribuiVetor(quantidade){
+
+		var numerosPensados = [];
+		var contador = 0;
+		var repetiu = false;
+
+		while(contador <= quantidade){
+			randomNum = sorteia();
+
+			for(var posicao = 0; posicao < quantidade; posicao++){
+				if(numerosPensados[posicao] == randomNum){
+					repetiu = true;
+					break;
+				}
+				
+			}	
+			if(repetiu == false){
+				numerosPensados.push(randomNum);
+				contador++;	
+			}
+		}
+		return numerosPensados;
+	}
+
+	atribuiVetor(5);
+
+	function verificaAcerto(){
+		var acertou = false;
+		
+		for(var posicao = 0; posicao < numerosPensados.length; posicao++){
+			
+			if(entrada.value == numerosPensados[posicao]){
+				alert("ACERTOU!");
+				acertou = true;
+				break;
+			}
+
+			entrada.value = "";
+			entrada.focus();
+		}
+
+		if(acertou == false){
+				alert("ERROU!");
+			}
+	}
+
+
+	var entrada = document.querySelector("input");
+	//entrada.value = "";
+	entrada.focus();	
+
+	var botao = document.querySelector("button");
+
+	botao.onclick = verificaAcerto;
+
+</script>
